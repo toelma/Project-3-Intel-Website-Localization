@@ -1,0 +1,276 @@
+/* Add your CSS here */
+
+/* Update Intel blue to #00C7FD and use more Intel palette colors */
+body {
+  background-color: #c4dce4; /* Updated Intel blue */
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif; /* Modern, clean font */
+  color: #222; /* Use dark text for contrast */
+  overflow-x: auto;
+  font-size: 1.08em; /* Slightly larger base font size */
+  line-height: 1.7;  /* More comfortable line spacing */
+  letter-spacing: 0.1px; /* Subtle letter spacing for clarity */
+  /* Add padding at the top to create a gap below the header */
+  padding-top: 24px;
+  /* Round the edges of the body for a softer look */
+  border-radius: 18px;
+  /* Add a subtle box-shadow for separation */
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+}
+
+/* Style the header section */
+header {
+  background-color: #0068B5; /* Black for strong contrast */
+  padding: 40px 0;
+  text-align: center;
+}
+
+/* Style the Intel logo */
+header img {
+  width: 120px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* Style the main headline */
+header h1 {
+  font-size: 2.5em;
+  margin: 10px 0;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #fff; /* White headline */
+}
+
+/* Style the subheading/description */
+header p {
+  font-size: 1.2em;
+  margin: 0 auto;
+  max-width: 500px;
+  color: #e0e0e0; /* Light grey for subheading */
+}
+
+/* Timeline: horizontal scroll on large screens, vertical stack on small screens */
+/* Ensure 4 full cards are always visible on large screens */
+section {
+  display: flex;                /* Use Flexbox for layout */
+  flex-direction: row;          /* Horizontal cards by default */
+  justify-content: flex-start;
+  align-items: stretch;
+  overflow-x: auto;             /* Enable horizontal scrolling */
+  gap: 20px;
+  padding: 30px 100px;              /* Remove side padding for exact fit */
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  max-width: 1440px;            /* 4 cards x 300px + 3 gaps x 20px = 1280px */
+  margin: 0 auto;
+  background: #f5f7fa;
+  box-sizing: border-box;
+}
+
+/* Style each timeline card for Intel's look */
+section > div {
+  background: #fff; /* White card background */
+  color: #222; /* Black text */
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(34,34,34,0.08); /* Soft black shadow */
+  min-width: 300px;
+  max-width: 300px;
+  width: 300px;
+  flex: 0 0 auto;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  border: 2px solid #00C7FD; /* Updated Intel blue border */
+  margin-bottom: 0;
+  transition: 
+    box-shadow 0.2s, 
+    border-color 0.2s,
+    transform 0.25s; /* Smooth transform on hover */
+  scroll-snap-align: start;
+  position: relative;
+}
+
+/* Headings inside cards */
+section > div h2 {
+  color: #00C7FD; /* Updated Intel blue for year */
+  font-size: 1.5em;
+  margin: 0 0 8px 0;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+section > div h3 {
+  color: #222; /* Black for subheading */
+  font-size: 1.1em;
+  margin: 0 0 10px 0;
+  font-weight: normal;
+}
+
+/* Paragraph text inside cards */
+section > div p {
+  color: #444; /* Dark grey for readability */
+  font-size: 1em;
+  margin: 0;
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+/* Improve paragraph appearance globally */
+p {
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
+  color: #333; /* Slightly darker for better readability */
+  font-size: 1em;
+  line-height: 1.7;
+}
+
+/* Hide extra details by default */
+section > div .details {
+  display: none;
+  margin-top: 10px;
+  color: #00C7FD; /* Updated Intel blue for details */
+  font-size: 0.98em;
+  background: #e6f7fb; /* Very light blue background */
+  border-radius: 6px;
+  padding: 8px;
+}
+
+/* Overlay the .card-text (main card text) only when hovering over the card */
+section > div .card-text {
+  display: none; /* Hide text by default */
+  position: absolute; /* Position absolutely over the card */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 199, 253, 0.7); /* Intel blue, semi-transparent */
+  z-index: 10;
+  justify-content: center; /* Center text horizontally */
+  align-items: center;     /* Center text vertically */
+  text-align: center;
+  color: #fff; /* White text */
+  font-size: 1.1em;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  transition: background 0.2s, color 0.2s;
+  /* Do not display by default */
+}
+
+/* Show .card-text overlay only when hovering over the card */
+section > div:hover .card-text,
+section > div:focus-within .card-text {
+  display: flex; /* Show as flex for centering */
+}
+
+/* Show details when hovering over the card */
+section > div:hover .details {
+  display: block;
+}
+
+/* Add a subtle hover effect for interactivity */
+section > div:hover {
+  box-shadow: 0 8px 32px rgba(0,199,253,0.18), 0 2px 8px rgba(34,34,34,0.08); /* Stronger blue shadow */
+  border-color: #222; /* Black border on hover */
+  transform: translateY(-8px) scale(1.03); /* Slightly lift and scale card */
+}
+
+/* Make images always fit nicely inside their card box */
+section > div img {
+  width: 100%;           /* Fill the card's width */
+  height: 200px;         /* Fixed height for consistency */
+  object-fit: cover;     /* Crop and fill the box, keeping aspect ratio */
+  border-radius: 6px;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+  background: #f5f7fa;   /* Light grey background for images */
+}
+
+/* Overlay covers only the card, not the whole page */
+.overlay {
+  display: none; /* Hidden by default */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 199, 253, 0.7); /* Updated Intel blue, semi-transparent */
+  z-index: 10;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  font-size: 1.1em;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+/* Show the overlay ONLY when hovering over the card */
+section > div:hover .overlay,
+section > div:focus-within .overlay {
+  display: flex; /* Show overlay as flex for centering */
+}
+
+/* Add scroll snap and horizontal scrolling to elements with .scroll-container */
+.scroll-container {
+  scroll-snap-type: x mandatory; /* Enable horizontal scroll snap */
+  overflow-x: scroll;            /* Allow horizontal scrolling */
+}
+
+/* Responsive: Stack cards vertically on small screens */
+@media (max-width: 1280px) {
+  section {
+    max-width: 100vw;           /* Allow section to use full width */
+    padding: 20px 5px;
+  }
+  section > div {
+    min-width: 250px;
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  section {
+    padding: 20px 10px;
+    gap: 12px;
+    max-width: 100%; /* Allow section to use full width */
+  }
+  section > div {
+    min-width: 180px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  section {
+    flex-direction: column;     /* Stack cards vertically */
+    align-items: stretch;
+    gap: 16px;
+    padding: 12px 2vw;
+    max-width: 100%;
+  }
+  section > div {
+    max-width: 100%;
+    min-width: 0;
+    width: 100%;
+  }
+  header h1 {
+    font-size: 1.5em;
+  }
+  section > div h2 {
+    font-size: 1.1em;
+  }
+  section > div h3 {
+    font-size: 1em;
+  }
+  section > div p {
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+}
