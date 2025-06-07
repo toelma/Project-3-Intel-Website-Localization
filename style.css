@@ -63,7 +63,7 @@ section {
   scroll-snap-type: x mandatory;
   max-width: 1440px;            /* 4 cards x 300px + 3 gaps x 20px = 1280px */
   margin: 0 auto;
-  background: #f5f7fa;
+  background: #c4dce4;
   box-sizing: border-box;
 }
 
