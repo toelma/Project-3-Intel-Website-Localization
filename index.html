@@ -29,7 +29,7 @@
   <header>
     <div>
       <!-- Ask Copilot to teach you about `.svg` 🙂 -->
-      <img src="img/intel-header-logo.svg" alt="Intel Logo" />
+      <img src="img/intel-header-logo.svg" alt="Intel company logo" />
       <!-- Main Heading -->
       <h1>
         Sustainability Through the Ages
@@ -52,7 +52,7 @@
     <div>
       <h2>1968</h2>
       <h3>Intel Founded</h3>
-      <img src="img/1.jpg" alt="Placeholder Image" />
+      <img src="img/1.jpg" alt="Founders of Intel, 1968" />
       <!-- Wrap all text in a container for hover effect -->
       <div class="card-text">
         <p>
@@ -67,7 +67,7 @@
     <div>
       <h2>1971</h2>
       <h3>First Microprocessor</h3>
-      <img src="img/2.jpg" alt="Placeholder Image" />
+      <img src="img/2.jpg" alt="Intel 4004 microprocessor, 1971" />
       <div class="card-text">
         <p>
           Intel debuts the 4004, the world's first commercial microprocessor, 
@@ -81,7 +81,7 @@
     <div>
       <h2>1978</h2>
       <h3>8086 Processor</h3>
-      <img src="img/3.jpg" alt="Placeholder Image" />
+      <img src="img/3.jpg" alt="Intel 8086 processor, 1978" />
       <div class="card-text">
         <p>
           Launch of the 8086 processor, establishing the x86 architecture 
@@ -94,7 +94,7 @@
     <div>
       <h2>1985</h2>
       <h3>386 Processor</h3>
-      <img src="img/4.jpg" alt="Placeholder Image" />
+      <img src="img/4.jpg" alt="Intel 386 processor, 1985" />
       <div class="card-text">
         <p>
           Intel introduces the 386 processor with 32-bit architecture, 
@@ -108,7 +108,7 @@
     <div>
       <h2>2006</h2>
       <h3>Peak GHG Emissions</h3>
-      <img src="img/marcin-jozwiak-T-eDxGcn-Ok-unsplash.jpg" alt="Renewable Energy Wind Turbines" />
+      <img src="img/marcin-jozwiak-T-eDxGcn-Ok-unsplash.jpg" alt="Wind turbines representing renewable energy, 2006" />
       <div class="card-text">
         <p style="font-size: 0.9em;">
           This year marks Intel's highest annual greenhouse gas emissions 
@@ -123,7 +123,7 @@
     <div>
       <h2>2020</h2>
       <h3>RISE Strategy</h3>
-      <img src="img/john-cameron-7zocFMzvbpc-unsplash.jpg" alt="Sustainable Energy Landscape" />
+      <img src="img/john-cameron-7zocFMzvbpc-unsplash.jpg" alt="Sustainable energy landscape, 2020" />
       <div class="card-text">
         <p>
           Intel launches its RISE (Responsible, Inclusive, Sustainable, 
@@ -137,7 +137,7 @@
     <div>
       <h2>2022</h2>
       <h3>Net-Zero By 2040</h3>
-      <img src="img/markus-spiske-_kB9NKpErH4-unsplash.jpg" alt="Net-Zero Sustainability" />
+      <img src="img/markus-spiske-_kB9NKpErH4-unsplash.jpg" alt="Net-zero sustainability, 2022" />
       <div class="card-text">
         <p>
           Intel announces its commitment to achieve net-zero greenhouse 
@@ -151,7 +151,7 @@
     <div>
       <h2>2023</h2>
       <h3>Renewable Electricity</h3>
-      <img src="img/vidar-nordli-mathisen-_qaHb5vTaic-unsplash.jpg" alt="Renewable Electricity Landscape" />
+      <img src="img/vidar-nordli-mathisen-_qaHb5vTaic-unsplash.jpg" alt="Renewable electricity landscape, 2023" />
       <div class="card-text">
         <p>
           The company achieves 99% renewable electricity usage worldwide, 
@@ -165,7 +165,7 @@
     <div>
       <h2>2024</h2>
       <h3>Sustainability Summit</h3>
-      <img src="img/Sustainability summit.webp" alt="Sustainability Summit" />
+      <img src="img/Sustainability summit.webp" alt="Intel Sustainability Summit, 2024" />
       <div class="card-text">
         <p>
           Intel hosts its first Sustainability Summit, uniting suppliers, 
@@ -234,7 +234,7 @@
 
   <!-- Newsletter Subscription Form (centered and styled like the columns above) -->
   <section>
-    <div style="background: #e3f2fd; border: 2px solid #00C7FD; border-radius: 12px; padding: 40px; margin-bottom: 28px; max-width: 650px; margin-left: auto; margin-right: auto; box-shadow: 0 4px 16px rgba(0,0,0,0.15);">
+    <div style="background: #fff; border: 2px solid #00C7FD; border-radius: 12px; padding: 40px; margin-bottom: 28px; max-width: 650px; margin-left: auto; margin-right: auto; box-shadow: 0 4px 16px rgba(0,0,0,0.15);">
       <!-- Increased max-width and padding for a larger box -->
       <h2 style="text-align: center; font-size: 1.4em; margin-bottom: 20px; color: #0068B5;">
         Subscribe to our Sustainability Newsletter
@@ -278,5 +278,37 @@
     <!-- Simple copyright notice -->
     <p style="margin: 0;">&copy; 2023 Intel Corporation. All rights reserved.</p>
   </footer>
+
+  <!-- Simple script to switch RTL/LTR based on language, even if changed by translation tools -->
+  <script>
+    // List of common RTL language codes
+    var rtlLanguages = ['ar', 'he', 'fa', 'ur'];
+    // Get the <html> element
+    var htmlTag = document.documentElement;
+
+    // Function to set direction based on lang attribute
+    function updateDirection() {
+      var lang = htmlTag.getAttribute('lang');
+      if (rtlLanguages.includes(lang)) {
+        htmlTag.setAttribute('dir', 'rtl');
+      } else {
+        htmlTag.setAttribute('dir', 'ltr');
+      }
+    }
+
+    // Run on page load
+    updateDirection();
+
+    // Watch for changes to the lang attribute (e.g., by Google Translate)
+    var observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.attributeName === 'lang') {
+          updateDirection();
+        }
+      });
+    });
+    observer.observe(htmlTag, { attributes: true });
+    // This helps the page automatically switch direction for RTL or LTR languages, even if changed dynamically.
+  </script>
 </body>
 </html>

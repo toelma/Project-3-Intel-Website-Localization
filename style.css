@@ -222,6 +222,14 @@ section > div:focus-within .overlay {
   overflow-x: scroll;            /* Allow horizontal scrolling */
 }
 
+/* Add smooth transition for info, newsletter, and other main boxes (not timeline cards) */
+.info-box, .newsletter-box {
+  transition: 
+    box-shadow 0.2s, 
+    border-color 0.2s,
+    transform 0.25s; /* Smooth transform on hover */
+}
+
 /* Responsive: Stack cards vertically on small screens */
 @media (max-width: 1280px) {
   section {
